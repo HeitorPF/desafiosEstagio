@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Header } from '../components/Header'
 import './Exercicio1.css'
 
 export function Exercicio1() {
@@ -17,13 +18,13 @@ export function Exercicio1() {
 		let salBruto = form.salarioHora * form.horasTrabalhadas
 		let salFal = 0
 		setSalarioBruto(salBruto)
-		if(salBruto<788){
+		if (salBruto < 788) {
 			salFal = 30.5 * form.filhosMenores
 		}
-		else if(salBruto < 1100){
+		else if (salBruto < 1100) {
 			salFal = 18.5 * form.filhosMenores
 		}
-		else{
+		else {
 			salFal = 11.9 * form.filhosMenores
 		}
 		setSalarioFamilia(salFal)
@@ -41,52 +42,56 @@ export function Exercicio1() {
 
 	return (
 		<>
-			<h1>Exercicio 1</h1>
+			<Header />
+			<h2>Exercicio 1</h2>
 
-				<div>
-					<label name='salarioHora'>
-						Valor do salário hora:
-					</label>
-					<input
-						type="number"
-						name="salarioHora"
-						value={form.salarioHora}
-						onChange={handleChange}
-					/>
-				</div>
+			<div>
+				<label htmlFor='salarioHora'>
+					Valor do salário hora:
+				</label>
+				<input
+					type="number"
+					id="salarioHora"
+					name='salarioHora'
+					value={form.salarioHora}
+					onChange={handleChange}
+				/>
+			</div>
 
-				<div>
-					<label name='horasTrabalhadas'>
-						Quantidade de horas trabalhadas:
-					</label>
-					<input
-						type="number"
-						name="horasTrabalhadas"
-						value={form.horasTrabalhadas}
-						onChange={handleChange}
-					/>
-				</div>
+			<div>
+				<label htmlFor='horasTrabalhadas'>
+					Quantidade de horas trabalhadas:
+				</label>
+				<input
+					type="number"
+					name="horasTrabalhadas"
+					id='horasTrabalhadas'
+					value={form.horasTrabalhadas}
+					onChange={handleChange}
+				/>
+			</div>
 
-				<div>
-					<label name='filhosMenores'>
-						Quantidade de filhos menores que 14 anos:
-					</label>
-					<input
-						type="number"
-						name="filhosMenores"
-						value={form.filhosMenores}
-						onChange={handleChange}
-					/>
-				</div>
+			<div>
+				<label htmlFor='filhosMenores'>
+					Quantidade de filhos menores que 14 anos:
+				</label>
+				<input
+					type="number"
+					name="filhosMenores"
+					id='filhosMenores'
+					value={form.filhosMenores}
+					onChange={handleChange}
+				/>
+			</div>
 
-				<button onClick={calcularSalarios}>Calcular</button>
+			<button onClick={calcularSalarios}>Calcular</button>
 
-				<h3>Resultado:</h3>
-				<ul>
-					<li>Salário bruto: {salarioBruto}</li>
-					<li>Salário família: {salarioFamilia}</li>
-					<li>Salário líquido: {salarioLiquido}</li>
-				</ul>
+			<h3>Resultado:</h3>
+			<ul>
+				<li>Salário bruto: {salarioBruto}</li>
+				<li>Salário família: {salarioFamilia}</li>
+				<li>Salário líquido: {salarioLiquido}</li>
+			</ul>
 
 		</>
 	)

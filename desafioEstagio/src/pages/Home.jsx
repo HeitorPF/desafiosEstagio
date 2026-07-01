@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
+import { Header } from "../components/Header";
 
 
 export function Home() {
 
   return (
     <>
+    <Header />
       <h1>Exercicios Estágio</h1>
 
       <div>
@@ -33,6 +35,24 @@ export function Home() {
         </ul>
 
         <Link to='/exercicio1'>
+          Ir para solução
+        </Link>
+      </div>
+
+      <div>
+        <h2>Exercicio 2</h2>
+
+        <p>
+          Desenvolver um sistema que receba uma sequência de números digitada pelo usuário. O
+          primeiro valor informado será a quantidade de números a ser digitada, e em seguida, a
+          sequência de números. No final o sistema deverá apresentar:
+        </p>
+        <ul>
+          <li>A própria sequência digitada pelo usuário.</li>
+          <li>O menor e o maior número da sequência.</li>
+        </ul>
+
+        <Link to='/exercicio2'>
           Ir para solução
         </Link>
       </div>
