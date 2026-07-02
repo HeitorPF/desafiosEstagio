@@ -46,7 +46,7 @@ export function Exercicio1() {
 			<Header />
 
 			<main>
-				<h2>Exercicio 1</h2>
+				<h2>Exercício 1</h2>
 
 				<div>
 					<label htmlFor='salarioHora'>

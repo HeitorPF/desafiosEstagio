@@ -43,7 +43,7 @@ export function Exercicio2() {
       <Header />
 
       <main>
-        <h2>Exercicio 2</h2>
+        <h2>Exercício 2</h2>
 
         <div>
           <label htmlFor="digitos">Quantidade de digitos:</label>
@@ -79,7 +79,7 @@ export function Exercicio2() {
           id="add-sequencia-button"
           onClick={addNum}
         >
-          Adicionar numero à sequência
+          Adicionar número à sequência
         </button>
         <button
           id="resetar-button"

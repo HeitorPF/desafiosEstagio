@@ -40,7 +40,7 @@ export function Home() {
         </div>
 
         <div>
-          <h2>Exercicio 2</h2>
+          <h2>Exercício 2</h2>
 
           <p>
             Desenvolver um sistema que receba uma sequência de números digitada pelo usuário. O
@@ -58,7 +58,7 @@ export function Home() {
         </div>
 
         <div>
-          <h2>Exercicio 3</h2>
+          <h2>Exercício 3</h2>
 
           <p>
             Os números de Fibonacci formam uma sequência em que cada número é igual à soma
