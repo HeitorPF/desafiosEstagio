@@ -13,6 +13,7 @@ export function Exercicio2() {
   function addNum() {
     if (sequencia.length < digito) {
       setSequencia([...sequencia, value])
+      setValue('')
     }
   }
 
@@ -26,13 +27,11 @@ export function Exercicio2() {
     let maiorTemp = sequencia[0]
     let menorTemp = sequencia[0]
     sequencia.forEach((n) => {
-      console.log(n)
       if (n > maiorTemp) {
         maiorTemp = n
       }
       if (n < menorTemp) {
         menorTemp = n
-        console.log(`${n} menor que ${me}`)
       }
     })
     setMaior(maiorTemp)
@@ -42,68 +41,79 @@ export function Exercicio2() {
   return (
     <>
       <Header />
-      <h2>Exercicio 2</h2>
 
-      <div>
-        <label htmlFor="digitos">Quantidade de digitos:</label>
-        <input
-          type="number"
-          id="digitos"
-          value={digito}
-          onChange={(e) => {
-            const num = e.target.value
-            if (num >= 0) {
-              setDigito(num)
-              if (num < sequencia.length) {
-                console.log(sequencia.slice(0, num))
-                setSequencia(sequencia.slice(0, num))
+      <main>
+        <h2>Exercicio 2</h2>
+
+        <div>
+          <label htmlFor="digitos">Quantidade de digitos:</label>
+          <input
+            type="number"
+            id="digitos"
+            value={digito}
+            onChange={(e) => {
+              const num = e.target.value
+              if (num >= 0) {
+                setDigito(num)
+                if (num < sequencia.length) {
+                  setSequencia(sequencia.slice(0, num))
+                }
               }
-            }
-          }}
-        />
-      </div>
+            }}
+          />
+        </div>
 
-      <div>
-        <label htmlFor="sequencia">Adicionar número a sequência:</label>
-        <input
-          type="number"
-          id="sequencia"
-          value={value}
-          onChange={(e) => {
-            setValue(e.target.value)
-          }}
-        />
-      </div>
+        <div>
+          <label htmlFor="sequencia">Adicionar número a sequência:</label>
+          <input
+            type="number"
+            id="sequencia"
+            value={value}
+            onChange={(e) => {
+              setValue(e.target.value)
+            }}
+          />
+        </div>
 
-      <button
-        id="add-sequencia-button"
-        onClick={addNum}
-      >
-        Adicionar numero à sequência
-      </button>
-      <button
-        id="resetar-button"
-        onClick={resetar}
-      >
-        Resetar
-      </button>
+        <button
+          id="add-sequencia-button"
+          onClick={addNum}
+        >
+          Adicionar numero à sequência
+        </button>
+        <button
+          id="resetar-button"
+          onClick={resetar}
+        >
+          Resetar
+        </button>
 
 
-      <p>Sequencia digitada: {sequencia}</p>
+        <div>
+          <p>Sequência digitada:</p>
+          <div className="sequence">
+            {sequencia.map((n, i) => {
+              return (
+                <span key={i} className="sequence-numbers">{n}</span>
+              )
+            })}
+          </div>
 
-      <button
-        onClick={calcularMaiorMenor}
-        id="calcular-button"
-      >
-        Calcular
-      </button>
+        </div>
 
-      <h3>Resultado</h3>
-      <ul>
-        <li>Menor: {menor}</li>
-        <li>Maior: {maior}</li>
-      </ul>
+        <button
+          onClick={calcularMaiorMenor}
+          className="calcular-button"
+        >
+          Calcular
+        </button>
 
+        <h3>Resultado</h3>
+        <ul>
+          <li>Menor: {menor}</li>
+          <li>Maior: {maior}</li>
+        </ul>
+      </main>
     </>
   )
 }

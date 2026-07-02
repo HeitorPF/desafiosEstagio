@@ -3,3 +3,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+main{
+  margin: 2rem;
+  background-color: #bbb;
+  padding: 1.5rem;
+  border-radius: .5rem;
+}
+
+body{
+  background-color: #222222;
+}

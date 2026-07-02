@@ -1,0 +1,10 @@
+button{
+  padding: .5rem;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+
+input{
+  padding: .2rem;
+  border-radius: .5rem;
+}

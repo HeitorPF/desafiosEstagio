@@ -33,66 +33,75 @@ export function Exercicio1() {
 
 	function handleChange(e) {
 		const key = e.target.name
-
-		setForm({
-			...form,
-			[key]: e.target.value
-		})
+		if (e.target.value >= 0) {
+			setForm({
+				...form,
+				[key]: e.target.value
+			})
+		}
 	}
 
 	return (
 		<>
 			<Header />
-			<h2>Exercicio 1</h2>
 
-			<div>
-				<label htmlFor='salarioHora'>
-					Valor do salário hora:
-				</label>
-				<input
-					type="number"
-					id="salarioHora"
-					name='salarioHora'
-					value={form.salarioHora}
-					onChange={handleChange}
-				/>
-			</div>
+			<main>
+				<h2>Exercicio 1</h2>
 
-			<div>
-				<label htmlFor='horasTrabalhadas'>
-					Quantidade de horas trabalhadas:
-				</label>
-				<input
-					type="number"
-					name="horasTrabalhadas"
-					id='horasTrabalhadas'
-					value={form.horasTrabalhadas}
-					onChange={handleChange}
-				/>
-			</div>
+				<div>
+					<label htmlFor='salarioHora'>
+						Valor do salário hora:
+					</label>
+					<input
+						type="number"
+						id="salarioHora"
+						name='salarioHora'
+						value={form.salarioHora}
+						onChange={handleChange}
+					/>
+				</div>
 
-			<div>
-				<label htmlFor='filhosMenores'>
-					Quantidade de filhos menores que 14 anos:
-				</label>
-				<input
-					type="number"
-					name="filhosMenores"
-					id='filhosMenores'
-					value={form.filhosMenores}
-					onChange={handleChange}
-				/>
-			</div>
+				<div>
+					<label htmlFor='horasTrabalhadas'>
+						Quantidade de horas trabalhadas:
+					</label>
+					<input
+						type="number"
+						name="horasTrabalhadas"
+						id='horasTrabalhadas'
+						value={form.horasTrabalhadas}
+						onChange={handleChange}
+					/>
+				</div>
 
-			<button onClick={calcularSalarios}>Calcular</button>
+				<div>
+					<label htmlFor='filhosMenores'>
+						Quantidade de filhos menores que 14 anos:
+					</label>
+					<input
+						type="number"
+						name="filhosMenores"
+						id='filhosMenores'
+						value={form.filhosMenores}
+						onChange={handleChange}
+					/>
+				</div>
 
-			<h3>Resultado:</h3>
-			<ul>
-				<li>Salário bruto: {salarioBruto}</li>
-				<li>Salário família: {salarioFamilia}</li>
-				<li>Salário líquido: {salarioLiquido}</li>
-			</ul>
+				<button
+					onClick={calcularSalarios}
+					className='calcular-button'
+				>
+					Calcular
+				</button>
 
+				<h3>Resultado:</h3>
+				<ul>
+					<li>Salário bruto: {salarioBruto || salarioBruto == 0 ? `R$${salarioBruto}` : ''}</li>
+					<li>Salário família: {salarioFamilia || salarioFamilia == 0 ? `R$${salarioFamilia}` : ''}</li>
+					<li>Salário líquido: {salarioLiquido || salarioLiquido == 0 ? `R$${salarioLiquido}` : ''}</li>
+				</ul>
+
+			</main>
 		</>
 	)
 }
