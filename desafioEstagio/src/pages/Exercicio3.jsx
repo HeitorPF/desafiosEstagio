@@ -9,12 +9,18 @@ export function Exercicio3() {
 
   function sequenciaFibonnacci(n) {
     //[1, 1, 2, 3, 5, 8, 13]
+    //1, 1, 2, 4, 7, 11, 18, 36, 65, 101, 166, 332, 599, 931, 1530
     setFazParte(false)
     let lastNum = 1
     let fib = [1, 1]
     if (n > 2) {
       for (let i = 2; i < n || lastNum < n; i++) {
-        lastNum = fib[i - 2] + fib[i - 1]
+        if (lastNum % 2 == 0) {
+          lastNum = fib[i - 3] + fib[i - 2] + fib[i - 1]
+        }
+        else {
+          lastNum = fib[i - 2] + fib[i - 1]
+        }
         if (lastNum == n) setFazParte(true)
         fib.push(lastNum)
       }
@@ -65,3 +71,6 @@ export function Exercicio3() {
     </>
   )
 }
+
+
+//1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610

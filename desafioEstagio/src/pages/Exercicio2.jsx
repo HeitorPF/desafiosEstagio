@@ -9,6 +9,7 @@ export function Exercicio2() {
 
   const [maior, setMaior] = useState()
   const [menor, setMenor] = useState()
+  const [segundoMaior, setSeundoMaior] = useState()
 
   function addNum() {
     if (sequencia.length < digito) {
@@ -26,9 +27,15 @@ export function Exercicio2() {
   function calcularMaiorMenor() {
     let maiorTemp = sequencia[0]
     let menorTemp = sequencia[0]
+    let segundoMaior = -9999
     sequencia.forEach((n) => {
+      if(n < maiorTemp && n >= segundoMaior){
+          segundoMaior = n
+      }
       if (n > maiorTemp) {
+        segundoMaior = maiorTemp
         maiorTemp = n
+        
       }
       if (n < menorTemp) {
         menorTemp = n
@@ -36,6 +43,7 @@ export function Exercicio2() {
     })
     setMaior(maiorTemp)
     setMenor(menorTemp)
+    setSeundoMaior(segundoMaior)
   }
 
   return (
@@ -112,6 +120,7 @@ export function Exercicio2() {
         <ul>
           <li>Menor: {menor}</li>
           <li>Maior: {maior}</li>
+          <li>Segundo maior: {segundoMaior}</li>
         </ul>
       </main>
     </>
